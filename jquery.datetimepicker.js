@@ -499,6 +499,7 @@
 		prevButton: true,
 		nextButton: true,
 		defaultSelect: true,
+		placeAbove: false
 
 		scrollMonth: true,
 		scrollTime: true,
@@ -1795,6 +1796,9 @@
 
 			setPos = function () {
 				var offset = datetimepicker.data('input').offset(), top = offset.top + datetimepicker.data('input')[0].offsetHeight - 1, left = offset.left, position = "absolute";
+				if (options.placeAbove) {
+					top = offset.top - datetimepicker[0].offsetHeight + 1
+				}
 				if (options.fixed) {
 					top -= $(window).scrollTop();
 					left -= $(window).scrollLeft();
